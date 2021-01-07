@@ -13,4 +13,16 @@ const fetchNumber = () => {
         .then((number) => updateNumber(number))
 }
 
+const saveNumber = (newNumber) => {
+    return fetch(DB_URL, {
+        method: 'PUT',
+        body: JSON.stringify(newNumber)
+   })
+} 
+
+const saveNumberThenRefetch = (newNumber) => {
+    return saveNumber(newNumber)
+        .then(() => fetchNumber())
+}
+
 fetchNumber()
