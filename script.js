@@ -25,4 +25,17 @@ const saveNumberThenRefetch = (newNumber) => {
         .then(() => fetchNumber())
 }
 
+const inc = () => {
+    const number = Number(numberElement.innerHTML)
+
+    const newNumber = number + 1
+
+    return saveNumberThenRefetch(newNumber)
+}
+
+incButtonElement.addEventListener(
+    'click',
+    inc
+)
+
 fetchNumber()
